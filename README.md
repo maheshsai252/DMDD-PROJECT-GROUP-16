@@ -2,11 +2,11 @@
 
 ## ER Diagram
 
-![ER Diagram](diagrams/erd.png)
+![ER Diagram](Diagrams/erd.png)
 
 ## Logical Diagram
 
-![Logical Diagram](diagrams/logical.png)
+![Logical Diagram](Diagrams/logical.png)
 
 ## Features
 
