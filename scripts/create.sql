@@ -53,7 +53,7 @@ CREATE TABLE Orders (
     cart_id INT NOT NULL,
     order_date DATE NOT NULL,
     total_amount DECIMAL(10, 2) NOT NULL,
-    status VARCHAR(50) NOT NULL CHECK (status IN ('pending', ‘’ordered’,’shipped', 'delivered')),
+    status VARCHAR(50) NOT NULL CHECK (status IN ('pending', 'ordered','shipped', 'delivered')),
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
     FOREIGN KEY (cart_id) REFERENCES Customer_Cart(cart_id)
 );
