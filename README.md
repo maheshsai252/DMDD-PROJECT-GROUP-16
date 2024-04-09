@@ -138,3 +138,16 @@ Stores the fetched details in output parameters for further processing.
 Checks ensure data integrity and validity, validating various constraints such as order status, review ratings, payment status, quantity ordered, unit price, total price, review date, shipping status, review description, review ID, transaction ID, shipping ID, and tracking numbers.
 
 ## PowerBI Dashboard
+
+![Report](Report/report.jpeg)
+
+## Instructions to run GUI
+
+1. clone the repo
+2. run cd GUI
+3. Start sql server and ensure inventory database is created
+3. run "streamlit run app.py"
+
+## DEMO - GUI
+
+![DEMO](GUI/demo.mp4)
