@@ -32,3 +32,16 @@ JOIN Reviews r ON p.product_id = r.product_id
 GROUP BY p.product_id, p.product_name
 HAVING AVG(r.review_rating) >= 4.5; -- Consider products with average rating of 4.5 or higher
 GO
+
+-- View: Order_Summary
+CREATE VIEW Order_Summary AS
+SELECT o.order_id,
+       o.order_date,
+       o.total_amount,
+       o.status,
+       c.customer_name,
+       COUNT(oi.order_item_id) AS total_items
+FROM Orders o
+JOIN Customer c ON o.customer_id = c.customer_id
+LEFT JOIN Order_Item oi ON o.order_id = oi.order_id
+GROUP BY o.order_id, o.order_date, o.total_amount, o.status, c.customer_name, c.customer_email, c.customer_phone_number;

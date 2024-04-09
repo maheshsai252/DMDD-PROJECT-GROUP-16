@@ -1,7 +1,9 @@
+-- Stored Procedure to search products by category
 CREATE PROCEDURE SearchProductsByCategory
     @category_name VARCHAR(255)
 AS
 BEGIN
+    -- Select products based on the provided category name
     SELECT p.product_id,
            p.product_name,
            p.product_price,
@@ -12,11 +14,12 @@ BEGIN
 END;
 GO
 
--- Stored Procedure 7: Get Customer Cart
+-- Stored Procedure to get customer's cart
 CREATE PROCEDURE GetCustomerCart
     @customer_id INT
 AS
 BEGIN
+    -- Select products in the customer's cart based on customer ID
     SELECT cc.cart_id,
            cc.product_id,
            p.product_name,
@@ -27,7 +30,7 @@ BEGIN
 END;
 GO
 
--- Stored Procedure 1: Get Customer by ID
+-- Stored Procedure to get customer details by ID
 CREATE PROCEDURE GetCustomerByID
     @customer_id INT,
     @customer_name VARCHAR(255) OUTPUT,
@@ -35,6 +38,7 @@ CREATE PROCEDURE GetCustomerByID
     @customer_phone_number VARCHAR(20) OUTPUT
 AS
 BEGIN
+    -- Retrieve customer details based on customer ID and output parameters
     SELECT @customer_name = customer_name,
            @customer_email = customer_email,
            @customer_phone_number = customer_phone_number
@@ -43,19 +47,20 @@ BEGIN
 END;
 GO
 
--- Stored Procedure 2: Insert New Product
+-- Stored Procedure to insert a new product
 CREATE PROCEDURE InsertProduct
     @product_name VARCHAR(255),
     @product_price DECIMAL(10, 2),
     @product_category_id INT
 AS
 BEGIN
+    -- Insert new product with provided details
     INSERT INTO Product (product_name, product_price, product_category_id)
     VALUES (@product_name, @product_price, @product_category_id);
 END;
 GO
 
--- Stored Procedure 3: Get Order Details
+-- Stored Procedure to get order details
 CREATE PROCEDURE GetOrderDetails
     @order_id INT,
     @customer_name VARCHAR(255) OUTPUT,
@@ -64,6 +69,7 @@ CREATE PROCEDURE GetOrderDetails
     @status VARCHAR(50) OUTPUT
 AS
 BEGIN
+    -- Retrieve order details based on order ID and output parameters
     SELECT @customer_name = c.customer_name,
            @order_date = o.order_date,
            @total_amount = o.total_amount,
