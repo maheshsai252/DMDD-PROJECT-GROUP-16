@@ -18,7 +18,7 @@ CREATE TABLE Product(
     FOREIGN KEY (product_category_id) REFERENCES ProductCategory(product_category_id)
 );
 CREATE TABLE Address (
-    supplier_address_id INT PRIMARY KEY,
+    supplier_address_id INT PRIMARY KEY IDENTITY,
     suplier_address VARCHAR(255),
     supplier_city VARCHAR(255),
     supplier_state VARCHAR(255),
@@ -27,14 +27,14 @@ CREATE TABLE Address (
 );
 
 CREATE TABLE Supplier (
-    supplier_id INT PRIMARY KEY,
+    supplier_id INT PRIMARY KEY IDENTITY,
     supplier_name VARCHAR(255) NOT NULL,
     supplier_contact VARCHAR(75) NOT NULL,
     supplier_address_id INT,
     FOREIGN KEY (supplier_address_id) REFERENCES Address( supplier_address_id)
 );
 CREATE TABLE Supplier_Product (
-    supplier_product_id  IDENTITY(1,1) PRIMARY KEY
+    supplier_product_id  INT PRIMARY KEY IDENTITY,
     supplier_id INT NOT NULL,
     product_id INT NOT NULL,
     unit_price DECIMAL(10, 2) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (cart_id) REFERENCES Customer_Cart(cart_id)
 );
 CREATE TABLE Order_Item (
-    order_item_id INT PRIMARY KEY,
+    order_item_id INT PRIMARY KEY IDENTITY,
     order_id INT NOT NULL,
     supplier_product_id INT NOT NULL,
     quantity_ordered INT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE Order_Item (
     FOREIGN KEY (supplier_product_id) REFERENCES Supplier_Product(supplier_product_id)
 );
 CREATE TABLE Reviews (
-    review_id INT PRIMARY KEY,
+    review_id INT PRIMARY KEY IDENTITY,
     product_id INT NOT NULL,
     customer_id INT NOT NULL,
     review_rating INT NOT NULL CHECK (review_rating >= 1 AND review_rating <= 5),
@@ -78,7 +78,7 @@ CREATE TABLE Reviews (
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 CREATE TABLE Payment_Transaction (
-    transaction_id INT PRIMARY KEY,
+    transaction_id INT PRIMARY KEY IDENTITY,
     customer_id INT NOT NULL,
     order_id INT NOT NULL,
     payment_date DATE NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE Payment_Transaction (
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
 );
 CREATE TABLE Shipping (
-    shipping_id INT PRIMARY KEY,
+    shipping_id INT PRIMARY KEY IDENTITY,
     order_id INT NOT NULL,
     customer_id INT NOT NULL,
     shipping_date DATE NOT NULL,
