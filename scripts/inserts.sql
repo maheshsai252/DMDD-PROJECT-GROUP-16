@@ -92,7 +92,8 @@ VALUES
     (6, 6, '2024-03-21', 44.99, 'pending'),
     (7, 7, '2024-03-22', 89.99, 'pending'),
     ( 8, 8, '2024-03-23', 27.99, 'pending'),
-    ( 9, 9, '2024-03-24', 279.99, 'pending');
+    ( 9, 9, '2024-03-24', 279.99, 'pending'),
+    ( 10, 10, '2024-03-24', 279.99, 'pending');
 -- Sample data for Order_Item table
 INSERT INTO Order_Item (order_id, supplier_product_id, quantity_ordered, unit_price)
 VALUES
@@ -104,7 +105,9 @@ VALUES
     ( 6, 6, 1, 69.99),
     (7, 7, 1, 44.99),
     (8, 8, 1, 89.99),
-    (9, 9, 1, 27.99)
+    (9, 9, 1, 27.99),
+    (10, 9, 1, 27.99);
+
 -- Sample data for Reviews table
 INSERT INTO Reviews (product_id, customer_id, review_rating, review_desc, review_date)
 VALUES
@@ -131,11 +134,17 @@ VALUES
     (6, 7, '2024-03-23', 44.99, 'pending'),
     (7, 8, '2024-03-24', 89.99, 'success'),
     (8, 9, '2024-03-25', 27.99, 'success');
+    (8, 9, '2024-03-10', 27.99, 'failed');
 -- Sample data for Shipping table
 INSERT INTO Shipping (order_id, customer_id, shipping_date, shipping_status, tracking_number)
 VALUES
     (1, 1, '2024-03-17', 'success', '1234567890'),
-    (5, 4, '2024-03-22', 'pending', NULL),
-    (6, 5, '2024-03-23', 'success', '9876543210'),
-    (8, 7, '2024-03-25', 'pending', NULL),
-    (9, 8, '2024-03-26', 'success', '3456789012');
+    (5, 5, '2024-03-22', 'pending', '1234566890'),
+    (6, 6, '2024-03-23', 'success', '0234566890'),
+    (8, 8, '2024-03-25', 'pending', '1234066890'),
+    (9, 9, '2024-03-26', 'success', '3456789012');
+    (2, 2, '2024-03-26', 'success', '3456782012');
+    (3, 3, '2024-03-26', 'success', '3452789012');
+    (4, 4, '2024-03-26', 'success', '3456729012');
+    (7, 7, '2024-03-26', 'success', '3256789012');
+    (10, 10, '2024-03-26', 'success', '1456789012');
